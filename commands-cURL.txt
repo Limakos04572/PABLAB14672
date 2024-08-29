@@ -1,0 +1,85 @@
+
+# Test POST /api/identity/register
+echo "Testing POST /api/identity/register"
+curl -X POST -H "Content-Type: application/json" -d '{"username":"john_doe", "email":"john@example.com", "password":"password123"}' http://localhost:PORT/api/identity/register
+
+# Test POST /api/identity/login
+echo "Testing POST /api/identity/login"
+curl -X POST -H "Content-Type: application/json" -d '{"username":"john_doe", "password":"password123"}' http://localhost:PORT/api/identity/login
+
+# Test POST /api/identity/resetpassword
+echo "Testing POST /api/identity/resetpassword"
+curl -X POST -H "Content-Type: application/json" -d '{"email":"john@example.com"}' http://localhost:PORT/api/identity/resetpassword
+
+# Test POST /api/identity/changepassword
+echo "Testing POST /api/identity/changepassword"
+curl -X POST -H "Authorization: Bearer YOUR_JWT_TOKEN" -H "Content-Type: application/json" -d '{"currentPassword":"oldpassword", "newPassword":"newpassword"}' http://localhost:PORT/api/identity/changepassword
+
+
+# Test GET /api/course
+echo "Testing GET /api/course"
+curl -X GET http://localhost:PORT/api/course
+
+# Test GET /api/course/{id}
+echo "Testing GET /api/course/{id}"
+curl -X GET http://localhost:PORT/api/course/1
+
+# Test GET /api/course/Test
+echo "Testing GET /api/course/Test"
+curl -X GET http://localhost:PORT/api/course/Test
+
+# Test POST /api/course
+echo "Testing POST /api/course"
+curl -X POST -H "Content-Type: application/json" -d '{"name":"New Course", "description":"Description of the new course"}' http://localhost:PORT/api/course
+
+# Test PUT /api/course
+echo "Testing PUT /api/course"
+curl -X PUT -H "Content-Type: application/json" -d '{"id":1, "name":"Updated Course", "description":"Updated description of the course"}' http://localhost:PORT/api/course
+
+# Test DELETE /api/course/{id}
+echo "Testing DELETE /api/course/{id}"
+curl -X DELETE http://localhost:PORT/api/course/1
+
+# Test GET /api/enrollment
+echo "Testing GET /api/enrollment"
+curl -X GET http://localhost:PORT/api/enrollment
+
+# Test GET /api/enrollment/{id}
+echo "Testing GET /api/enrollment/{id}"
+curl -X GET http://localhost:PORT/api/enrollment/1
+
+# Test POST /api/enrollment
+echo "Testing POST /api/enrollment"
+curl -X POST -H "Content-Type: application/json" -d '{"studentId":1, "courseId":1, "enrollmentDate":"2024-06-10"}' http://localhost:PORT/api/enrollment
+
+# Test PUT /api/enrollment
+echo "Testing PUT /api/enrollment"
+curl -X PUT -H "Content-Type: application/json" -d '{"id":1, "studentId":1, "courseId":2, "enrollmentDate":"2024-06-15"}' http://localhost:PORT/api/enrollment
+
+# Test DELETE /api/enrollment/{id}
+echo "Testing DELETE /api/enrollment/{id}"
+curl -X DELETE http://localhost:PORT/api/enrollment/1
+
+# Test GET /api/student
+echo "Testing GET /api/student"
+curl -X GET http://localhost:PORT/api/student
+
+# Test GET /api/student/{id}
+echo "Testing GET /api/student/{id}"
+curl -X GET http://localhost:PORT/api/student/1
+
+# Test GET /api/student/action/{name}
+echo "Testing GET /api/student/action/{name}"
+curl -X GET http://localhost:PORT/api/student/action?firstName=John&lastName=Doe
+
+# Test POST /api/student
+echo "Testing POST /api/student"
+curl -X POST -H "Content-Type: application/json" -d '{"firstName":"John", "lastName":"Doe", "age":25}' http://localhost:PORT/api/student
+
+# Test PUT /api/student
+echo "Testing PUT /api/student"
+curl -X PUT -H "Content-Type: application/json" -d '{"id":1, "firstName":"John", "lastName":"Doe", "age":30}' http://localhost:PORT/api/student
+
+# Test DELETE /api/student/{id}
+echo "Testing DELETE /api/student/{id}"
+curl -X DELETE http://localhost:PORT/api/student/1

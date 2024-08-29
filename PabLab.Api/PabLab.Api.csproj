@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <InvariantGlobalization>true</InvariantGlobalization>
+        <RootNamespace>PabLab.WebAPI</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Grpc.AspNetCore" Version="2.63.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.6" />
+        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.0"/>
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0"/>
+        <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.6.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\PabLab.Application\PabLab.Application.csproj" />
+      <ProjectReference Include="..\PabLab.Domain\PabLab.Domain.csproj" />
+      <ProjectReference Include="..\PabLab.Infrastructure\PabLab.Infrastructure.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Protobuf Include="gRPCModule\Statistics.proto" GrpcServices="Server" />
+    </ItemGroup>
+</Project>
